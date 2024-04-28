@@ -1,6 +1,7 @@
 import React from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -56,9 +57,9 @@ const Register = () => {
             className="px-3 py-2 border rounded-md w-full"
             placeholder="Birthday"
           />
-          <select className="px-3 py-2 border rounded-md w-full text-[#1c1c1c]/50">
-            <option disabled className="">
-              Choose Club
+          <select className="px-3 py-2 border rounded-md w-full text-[#1c1c1c]">
+            <option disabled className="text-[#1c1c1c]">
+              Choose Gender
             </option>
             <option className="text-[#1c1c1c]">Male</option>
             <option className="text-[#1c1c1c]">Female</option>
