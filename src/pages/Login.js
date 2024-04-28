@@ -1,0 +1,69 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  console.log("Email: ", email);
+  console.log("Password: ", password);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/home");
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    navigate("/register");
+  };
+  return (
+    <div
+      className="bg-cover bg-yellow-900 lg:bg-contain bg-no-repeat bg-center flex items-center justify-center h-screen"
+      style={{
+        backgroundImage:
+          "url('https://www.sti.edu/images/2022/2022-banner-shs-model2.png')",
+      }}
+    >
+      <div className="flex flex-col bg-[#c3aaaa7b] p-5 rounded-lg h-[15em] w-[20em] shadow-lg shadow-black">
+        <h2 className="text-center font-bold text-[20px] mb-4 font-poppins text-[#100707]">
+          Welcome
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            className="mb-3 px-3 py-2 border rounded-md w-full"
+            placeholder="Email"
+          />
+          <input
+            required
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            className="px-3 py-2 border rounded-md w-full"
+            placeholder="Password"
+          />
+          <h2
+            onClick={handleRegister}
+            className="text-black font-medium text-center text-sm cursor-pointer py-1"
+          >
+            Create account?
+          </h2>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            type="submit"
+            href="homepage.html"
+            className="block w-full py-2 font-poppins bg-yellow-400 border border-black rounded-md text-center text-black font-semibold"
+          >
+            Log in
+          </motion.button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
