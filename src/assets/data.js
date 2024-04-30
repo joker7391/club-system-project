@@ -3,26 +3,31 @@ import img2 from "../assets/image2.jpg";
 import img3 from "../assets/image3.jpg";
 import img4 from "../assets/image4.jpg";
 import img5 from "../assets/image5.jpg";
+import img6 from "../assets/image6.jpg";
 
 export const clubData = [
   {
     id: img1,
-    club: "Club 1",
+    club: "ITMAWE",
   },
   {
     id: img2,
-    club: "Club 2",
+    club: "HUMMS",
   },
   {
     id: img3,
-    club: "Club 3",
+    club: "STEM",
   },
   {
     id: img4,
-    club: "Club 4",
+    club: "YRC",
   },
   {
     id: img5,
-    club: "Club 5",
+    club: "ARTES",
+  },
+  {
+    id: img6,
+    club: "ABM",
   },
 ];
