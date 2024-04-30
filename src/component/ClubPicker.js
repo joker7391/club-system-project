@@ -24,9 +24,6 @@ const ClubPicker = () => {
             <button className="text-[#fff] text-[25px] font-semibold">
               Visit
             </button>
-            <button className="text-[#fff] text-[25px] font-semibold">
-              Open
-            </button>
           </div>
         </div>
       ))}

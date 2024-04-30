@@ -8,7 +8,7 @@ const Homepage = () => {
     <div>
       <Header />
       <Strip />
-      <div className="h-screen bg-yellow-900">
+      <div className="h-screen bg-yellow-400 ">
         <ClubPicker />
       </div>
     </div>
