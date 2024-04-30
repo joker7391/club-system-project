@@ -1,15 +1,49 @@
-import React from "react";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
 
 const Register = () => {
   const navigate = useNavigate();
+  const auth = getAuth();
+  const firestore = getFirestore();
 
-  const handleback = (e) => {
-    e.preventDefault();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [age, setAge] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [gender, setGender] = useState("");
+  const [contact, setContact] = useState("");
+
+  const handleback = () => {
     navigate("/");
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      await setDoc(doc(firestore, "users", user.uid), {
+        email,
+        age,
+        birthday,
+        gender,
+        contact,
+      });
+      navigate("/login");
+      console.log("You register successfully");
+    } catch (error) {
+      console.error("Registration error:", error.message);
+    }
+  };
+
   return (
     <div
       className="bg-cover bg-yellow-900 lg:bg-contain bg-no-repeat bg-center flex items-center justify-center h-screen"
@@ -20,61 +54,58 @@ const Register = () => {
     >
       <div className="flex flex-col bg-[#c3aaaa7b] p-5 rounded-lg h-[30em] w-[20em] shadow-lg shadow-black">
         <div className="flex items-center justify-between mb-3">
-          <button onClick={handleback} className="text-[30px] ">
+          <button onClick={handleback} className="text-[30px]">
             <IoMdArrowRoundBack />
           </button>
-
           <h2 className="text-center font-semibold text-[20px] font-poppins text-[#100707]">
             Register
           </h2>
         </div>
-
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             required
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             className="px-3 py-2 border rounded-md w-full"
             placeholder="Email"
           />
           <input
             required
-            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             type="password"
             className="px-3 py-2 border rounded-md w-full"
             placeholder="Password"
           />
           <input
             required
-            // onChange={(e) => setPassword(e.target.value)}
-
+            onChange={(e) => setAge(e.target.value)}
             className="px-3 py-2 border rounded-md w-full"
             placeholder="Age"
           />
           <input
             required
+            onChange={(e) => setBirthday(e.target.value)}
             type="date"
             className="px-3 py-2 border rounded-md w-full"
-            placeholder="Birthday"
           />
-          <select className="px-3 py-2 border rounded-md w-full text-[#1c1c1c]">
-            <option disabled className="text-[#1c1c1c]">
-              Choose Gender
-            </option>
-            <option className="text-[#1c1c1c]">Male</option>
-            <option className="text-[#1c1c1c]">Female</option>
+          <select
+            required
+            onChange={(e) => setGender(e.target.value)}
+            className="px-3 py-2 border rounded-md w-full text-[#1c1c1c]"
+          >
+            <option value="">Choose Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
           <input
             required
+            onChange={(e) => setContact(e.target.value)}
             type="number"
             className="px-3 py-2 border rounded-md w-full"
             placeholder="Contact Number"
           />
-
           <button
-            whileTap={{ scale: 0.9 }}
             type="submit"
-            href="homepage.html"
             className="block w-full py-2 font-poppins bg-yellow-400 border border-black rounded-md text-center text-black font-semibold"
           >
             Register

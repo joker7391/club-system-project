@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   console.log("Email: ", email);
   console.log("Password: ", password);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/home");
+    setError(null); // Reset error state on new login attempt
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth, // Correctly pass the auth instance
+        email,
+        password
+      );
+      const user = userCredential.user;
+      navigate("/home"); // Navigate to the home route after successful login
+    } catch (error) {
+      setError(error.message);
+      console.error("Login error:", error);
+    }
   };
 
   const handleRegister = (e) => {
