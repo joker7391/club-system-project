@@ -37,7 +37,7 @@ const Register = () => {
         gender,
         contact,
       });
-      navigate("/login");
+      navigate("/");
       console.log("You register successfully");
     } catch (error) {
       console.error("Registration error:", error.message);

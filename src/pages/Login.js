@@ -15,15 +15,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reset error state on new login attempt
+    setError(null);
     try {
       const userCredential = await signInWithEmailAndPassword(
-        auth, // Correctly pass the auth instance
+        auth,
         email,
         password
       );
       const user = userCredential.user;
-      navigate("/home"); // Navigate to the home route after successful login
+      navigate("/home");
     } catch (error) {
       setError(error.message);
       console.error("Login error:", error);

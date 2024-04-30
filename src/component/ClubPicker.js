@@ -10,9 +10,10 @@ const ClubPicker = () => {
           className="w-full bg-blue-700 rounded-lg p-2 flex justify-between items-center"
         >
           <div className="flex items-center gap-4">
-            <h1 className="bg-yellow-400 rounded-md w-16 h-10 text-center font-bold text-[25px] text-[#fff]">
-              {club.id}
-            </h1>
+            <img
+              src={club.id}
+              className="bg-yellow-400 rounded-md w-16 h-10 "
+            />
 
             <h1 className="text-[25px] text-[#fff] font-bold">{club.club}</h1>
           </div>
