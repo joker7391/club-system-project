@@ -1,29 +1,46 @@
 import React from "react";
-import { clubData } from "../assets/data";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { clubData } from "../assets/data"; // Adjust the import path as necessary
 
 const ClubPicker = () => {
+  const navigate = useNavigate();
+
+  const handleVisit = (clubName) => {
+    navigate(`/${clubName.toLowerCase()}`);
+  };
+
   return (
-    <div className="p-4 flex flex-col gap-4">
+    <div className="flex flex-wrap gap-12 p-24 w-[80em]">
       {clubData.map((club, index) => (
         <div
           key={index}
-          className="w-full bg-blue-700 rounded-lg p-2 flex justify-between items-center"
+          className="w-[20em] h-[18em] bg-blue-700 rounded-md py-6 flex flex-col items-center gap-2"
         >
-          <div className="flex items-center gap-4">
-            <img
+          <div className="w-[8em]">
+            <motion.img
+              whileHover={{ scale: 1.1 }}
               src={club.id}
-              className="bg-yellow-400 rounded-md w-16 h-10 "
+              className="bg-yellow-400 rounded-full w-full"
             />
-
-            <h1 className="text-[25px] text-[#fff] font-bold">{club.club}</h1>
+            <h1 className="text-[30px] text-[#fff] font-extrabold text-center py-3 underline">
+              {club.club}
+            </h1>
           </div>
           <div className="flex gap-4">
-            <button className="text-[#fff] text-[25px] font-semibold">
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              className="text-[#090612] text-[25px] font-bold bg-yellow-400 px-3 rounded-md"
+            >
               Join
-            </button>
-            <button className="text-[#fff] text-[25px] font-semibold">
+            </motion.button>
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => handleVisit(club.club)}
+              className="text-[#090612] text-[25px] font-bold bg-yellow-400 px-3 rounded-md"
+            >
               Visit
-            </button>
+            </motion.button>
           </div>
         </div>
       ))}

@@ -9,6 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   console.log("Email: ", email);
   console.log("Password: ", password);
@@ -44,7 +45,7 @@ const Login = () => {
     >
       <div className="flex flex-col bg-[#c3aaaa7b] p-5 rounded-lg h-[15em] w-[20em] shadow-lg shadow-black">
         <h2 className="text-center font-bold text-[20px] mb-4 font-poppins text-[#100707]">
-          Welcome
+          Welcome KUPAL
         </h2>
         <form onSubmit={handleSubmit}>
           <input

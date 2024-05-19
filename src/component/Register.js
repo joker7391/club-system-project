@@ -9,6 +9,7 @@ const Register = () => {
   const auth = getAuth();
   const firestore = getFirestore();
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [age, setAge] = useState("");
@@ -33,6 +34,7 @@ const Register = () => {
       await setDoc(doc(firestore, "users", user.uid), {
         email,
         age,
+        name,
         birthday,
         gender,
         contact,
@@ -46,13 +48,13 @@ const Register = () => {
 
   return (
     <div
-      className="bg-cover bg-yellow-900 lg:bg-contain bg-no-repeat bg-center flex items-center justify-center h-screen"
+      className="bg-cover bg-yellow-600 lg:bg-contain bg-no-repeat bg-center flex items-center justify-center h-screen"
       style={{
         backgroundImage:
           "url('https://www.sti.edu/images/2022/2022-banner-shs-model2.png')",
       }}
     >
-      <div className="flex flex-col bg-[#c3aaaa7b] p-5 rounded-lg h-[30em] w-[20em] shadow-lg shadow-black">
+      <div className="flex flex-col bg-[#c3aaaa7b] p-5 rounded-lg h-[33em] w-[20em] shadow-lg shadow-black">
         <div className="flex items-center justify-between mb-3">
           <button onClick={handleback} className="text-[30px]">
             <IoMdArrowRoundBack />
@@ -75,6 +77,13 @@ const Register = () => {
             type="password"
             className="px-3 py-2 border rounded-md w-full"
             placeholder="Password"
+          />
+          <input
+            required
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            className="px-3 py-2 border rounded-md w-full"
+            placeholder="Username"
           />
           <input
             required
