@@ -11,9 +11,6 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
 
-  console.log("Email: ", email);
-  console.log("Password: ", password);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -23,7 +20,9 @@ const Login = () => {
         email,
         password
       );
+      console.log("User Credential:", userCredential); // Added for debugging
       const user = userCredential.user;
+      console.log("Authenticated User:", user); // Added for debugging
       navigate("/home");
     } catch (error) {
       setError(error.message);
@@ -35,6 +34,7 @@ const Login = () => {
     e.preventDefault();
     navigate("/register");
   };
+
   return (
     <div
       className="bg-cover bg-yellow-600 lg:bg-contain bg-no-repeat bg-center flex items-center justify-center h-screen"
@@ -45,8 +45,10 @@ const Login = () => {
     >
       <div className="flex flex-col bg-[#c3aaaa7b] p-5 rounded-lg h-[15em] w-[20em] shadow-lg shadow-black">
         <h2 className="text-center font-bold text-[20px] mb-4 font-poppins text-[#100707]">
-          Welcome KUPAL
+          Welcome
         </h2>
+        {error && <p className="text-red-500">{error}</p>}{" "}
+        {/* Display error message */}
         <form onSubmit={handleSubmit}>
           <input
             required
@@ -71,7 +73,6 @@ const Login = () => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             type="submit"
-            href="homepage.html"
             className="block w-full py-2 font-poppins bg-yellow-400 border border-black rounded-md text-center text-black font-semibold"
           >
             Log in

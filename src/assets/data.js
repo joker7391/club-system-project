@@ -12,6 +12,8 @@ import img11 from "../assets/image11.jpg";
 import img12 from "../assets/image12.jpg";
 import img13 from "../assets/image13.jpg";
 import img14 from "../assets/image14.jpg";
+import img15 from "../assets/image15.jpg";
+import img16 from "../assets/image16.jpg";
 
 export const clubData = [
   {
@@ -41,6 +43,14 @@ export const clubData = [
   {
     id: img1,
     club: "ITMAWE",
+  },
+  {
+    id: img15,
+    club: "COOKS",
+  },
+  {
+    id: img16,
+    club: "TOUSLE",
   },
 ];
 
