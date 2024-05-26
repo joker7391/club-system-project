@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
-import { useAuth } from "../AuthContext"; // Make sure the path is correct
-import { clubData } from "../assets/data"; // Make sure the path is correct
-import { firestore } from "../firebase.config"; // Make sure the path is correct
+import { useAuth } from "../AuthContext";
+import { clubData } from "../assets/data";
+import { firestore } from "../firebase.config";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ClubPicker = () => {
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ const ClubPicker = () => {
 
   const handleJoin = async (clubName) => {
     if (!currentUser) {
-      alert("You need to be logged in to join a club.");
+      toast.error("You need to be logged in to join a club.");
       return;
     }
 
@@ -31,16 +33,16 @@ const ClubPicker = () => {
       const userDoc = doc(firestore, "users", currentUser.uid);
       await setDoc(userDoc, { club: clubName }, { merge: true });
       setUserClub(clubName);
-      alert(`You have successfully joined the ${clubName} club!`);
+      toast.success(`You have successfully joined the ${clubName} club!`);
     } catch (error) {
       console.error("Error joining club: ", error);
-      alert("Failed to join the club. Please try again.");
+      toast.error("Failed to join the club. Please try again.");
     }
   };
 
   const handleUnjoin = async () => {
     if (!currentUser) {
-      alert("You need to be logged in to unjoin a club.");
+      toast.error("You need to be logged in to unjoin a club.");
       return;
     }
 
@@ -48,10 +50,10 @@ const ClubPicker = () => {
       const userDoc = doc(firestore, "users", currentUser.uid);
       await setDoc(userDoc, { club: "" }, { merge: true });
       setUserClub(null);
-      alert("You have successfully left the club.");
+      toast.success("You have successfully left the club.");
     } catch (error) {
       console.error("Error leaving club: ", error);
-      alert("Failed to leave the club. Please try again.");
+      toast.error("Failed to leave the club. Please try again.");
     }
   };
 
@@ -82,7 +84,7 @@ const ClubPicker = () => {
               onClick={handleUnjoin}
               className="text-[#090612] text-[25px] font-bold bg-yellow-400 px-3 rounded-md"
             >
-              Leave
+              Unjoin
             </motion.button>
           </div>
         </div>

@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { auth, firestore } from "./firebase.config";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const AuthContext = React.createContext();
 
@@ -41,6 +43,7 @@ function Main() {
     <React.StrictMode>
       <AuthContext.Provider value={{ currentUser, userData }}>
         <App />
+        <ToastContainer position="top-center" />
       </AuthContext.Provider>
     </React.StrictMode>
   );
