@@ -38,6 +38,7 @@ const Register = () => {
         birthday,
         gender,
         contact,
+        club: "",
       });
       navigate("/");
       console.log("You register successfully");
