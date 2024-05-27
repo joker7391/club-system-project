@@ -13,27 +13,17 @@ const Notifications = () => {
         Notifications
       </h1>
       <div className="flex flex-col gap-4 p-3">
-        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]">
-          pak u justine
-        </div>
-        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]">
-          pak u justine
-        </div>
-        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]">
-          pak u justine
-        </div>
-        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]">
-          pak u justine
-        </div>
-        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]">
-          pak u justine
-        </div>
-        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]">
-          pak u justine
-        </div>
-        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]">
-          pak u justine
-        </div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
+        <div className="bg-yellow-400 p-4 w-full rounded-md py-1 h-[2em]"></div>
       </div>
     </motion.div>
   );
