@@ -1,6 +1,6 @@
 import React from "react";
 
-const YrcClubComponent = () => {
+const ARTESclubComponent = () => {
   return (
     <div className="min-h-screen bg-[#fb7979b4] flex justify-center items-center w-full lg:w-auto">
       <div className="py-20 flex flex-col items-center gap-10">
@@ -21,4 +21,4 @@ const YrcClubComponent = () => {
   );
 };
 
-export default YrcClubComponent;
+export default ARTESclubComponent;

@@ -1,19 +1,19 @@
 import React from "react";
 import Header from "../component/Header";
-import YrcClubComponent from "../component/YrcClubComponent";
+import ARTESclubComponent from "../component/ARTESclubComponent";
 
-const YrcClub = () => {
+const ARTES = () => {
   return (
     <div className="">
       <Header />
       <div className="bg-center h-screen bg-no-repeat bg-[#e68b8bda] w-full lg:w-auto">
         <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#f8f8f8] text-center tracking-wide">
-          Welcome <span>to YRC</span>
+          Welcome <span>to ARTES</span>
         </h1>
       </div>
-      <YrcClubComponent />
+      <ARTESclubComponent />
     </div>
   );
 };
 
-export default YrcClub;
+export default ARTES;

@@ -77,3 +77,21 @@ export const sportsClubImages = [
     original: img14,
   },
 ];
+
+export const clubs = [
+  {
+    id: "club1",
+    name: "Club 1",
+    description: "This is the first club.",
+  },
+  {
+    id: "club2",
+    name: "Club 2",
+    description: "This is the second club.",
+  },
+  {
+    id: "club3",
+    name: "Club 3",
+    description: "This is the third club.",
+  },
+];
