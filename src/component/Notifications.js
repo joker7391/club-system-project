@@ -7,7 +7,7 @@ const Notifications = () => {
       initial={{ x: "100%" }}
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
-      className="absolute top-[17px] right-[101.9px] flex flex-col gap-2 bg-[#fff] h-screen w-[20em] rounded-md "
+      className="absolute top-[17px] right-[50px] flex flex-col gap-2 bg-[#fff] h-screen w-[20em] rounded-md "
     >
       <h1 className="text-center text-[30px] font-bold bg-blue-600 text-[#fff] rounded-md">
         Notifications

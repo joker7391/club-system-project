@@ -67,7 +67,7 @@ const ClubPicker = () => {
               src={clubData.find((club) => club.club === userClub)?.id}
               className="bg-yellow-400 rounded-full w-full"
             />
-            <h1 className="text-[30px] text-[#fff] font-extrabold text-center py-3 underline">
+            <h1 className="text-[30px] text-[#fff] font-extrabold text-center py-3">
               {userClub}
             </h1>
           </div>

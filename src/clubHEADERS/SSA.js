@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import Logout from "./Logout";
-import clubData from "../assets/clubLOGO.png";
-import { IoPersonCircleOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
 
-const Header = () => {
-  const [isOpen] = useState(false);
+import { AuthContext } from "../index";
+import { useNavigate } from "react-router-dom";
+import SSAlogo from "../assets/image7.jpg";
+import { IoPersonCircleOutline } from "react-icons/io5";
+
+const SSA = () => {
+  const { userData } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleHome = () => {
     navigate("/home");
@@ -17,12 +18,14 @@ const Header = () => {
           onClick={handleHome}
           className="font-extrabold text-[30px] text-[#fff] cursor-pointer"
         >
-          STI CLUB
+          SSA
         </h1>
-        <img className="w-[4em] h-[4em] " src={clubData} alt="logo" />
+        <img className="w-[4em] h-[4em] rounded-md" src={SSAlogo} alt="logo" />
       </div>
       <div className="flex gap-4 items-center text-[#fff]">
-        <Logout />
+        <h4 className="text-[20px] font-semibold py-1 text-[#fff]">
+          {userData?.name || "User"}
+        </h4>
         <button className="text-[40px]">
           <IoPersonCircleOutline />
         </button>
@@ -31,4 +34,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SSA;

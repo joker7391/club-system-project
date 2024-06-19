@@ -8,6 +8,7 @@ import Humms from "./pages/Humms";
 import Stem from "./pages/Stem";
 import YrcClub from "./pages/YrcClub";
 import ARTES from "./pages/ARTES";
+import ABM from "./pages/ABM";
 import ForbiddenPage from "./pages/ForbiddenPage";
 import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -78,6 +79,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ARTES />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/abm"
+            element={
+              <ProtectedRoute>
+                <ABM />
               </ProtectedRoute>
             }
           />

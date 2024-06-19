@@ -36,7 +36,7 @@ const AdminLogin = () => {
 
   return (
     <div
-      className="bg-cover bg-yellow-600 lg:bg-contain bg-no-repeat bg-center relative flex items-center justify-center h-screen"
+      className="bg-cover bg-blue-800 lg:bg-contain bg-no-repeat bg-center relative flex items-center justify-center h-screen"
       style={{
         backgroundImage:
           "url('https://www.sti.edu/images/2022/2022-banner-shs-model2.png')",
@@ -76,7 +76,7 @@ const AdminLogin = () => {
         onClick={() => navigate("/")}
         className="bg-blue-400 p-2 absolute top-5 right-5 rounded-md text-[#fff]"
       >
-        Student login
+        Hello, STIER!
       </button>
     </div>
   );

@@ -5,7 +5,11 @@ import { firestore, storage } from "../firebase.config";
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState({ description: "", image: null });
+  const [newTask, setNewTask] = useState({
+    description: "",
+    dateTime: "",
+    image: null,
+  });
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [clubId, setClubId] = useState(""); // Assuming you have a club ID
@@ -59,6 +63,7 @@ const TodoList = () => {
 
       const taskData = {
         description: newTask.description,
+        dateTime: newTask.dateTime,
         imageURL: imageURL,
         createdAt: new Date(),
       };
@@ -73,7 +78,7 @@ const TodoList = () => {
         console.error("Club ID is required");
       }
 
-      setNewTask({ description: "", image: null });
+      setNewTask({ description: "", dateTime: "", image: null });
       setProgress(0);
     } catch (error) {
       console.error("Error adding task:", error);
@@ -86,7 +91,7 @@ const TodoList = () => {
     <div className="flex justify-center">
       <form
         onSubmit={addTask}
-        className="flex flex-col justify-around gap-5 bg-blue-600 p-3 rounded-md h-[18em]"
+        className="flex flex-col justify-around gap-5 bg-blue-600 p-3 rounded-md h-[30em] w-[30em]"
       >
         <h2 className="text-lg text-[#fff] text-center font-semibold">
           Add event
@@ -104,6 +109,15 @@ const TodoList = () => {
           value={newTask.description}
           onChange={handleInputChange}
           placeholder="Task Description"
+          required
+          className="rounded-md p-1"
+        />
+        <textarea
+          type="date"
+          name="dateTime"
+          value={newTask.dateTime}
+          onChange={handleInputChange}
+          placeholder="Date & Time"
           required
           className="rounded-md p-1"
         />

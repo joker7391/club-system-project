@@ -54,7 +54,7 @@ export const clubData = [
   },
 ];
 
-export const sportsClubImages = [
+export const images = [
   {
     original: img8,
   },
@@ -66,15 +66,6 @@ export const sportsClubImages = [
   },
   {
     original: img11,
-  },
-  {
-    original: img12,
-  },
-  {
-    original: img13,
-  },
-  {
-    original: img14,
   },
 ];
 
