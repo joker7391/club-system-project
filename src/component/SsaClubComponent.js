@@ -1,7 +1,5 @@
 import React from "react";
 
-import { sportsClubImages } from "../assets/data";
-
 const SsaClubComponent = () => {
   return (
     <div className="min-h-screen bg-[#e0e04b] flex justify-center items-center w-full lg:w-auto">

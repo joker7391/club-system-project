@@ -1,17 +1,22 @@
-import React from "react";
-import Header from "../component/Header";
-import StemClubLogo from "../assets/StemClub.png";
+import React, { useContext } from "react";
+import { AuthContext } from "../index";
+
+import STEM from "../clubHEADERS/STEM";
+
+import StemCarousel from "../component/StemCarousel";
 import StemClubComponent from "../component/StemClubComponent";
 
 const Stem = () => {
+  const { userData } = useContext(AuthContext);
+
   return (
     <div className="bg-[#a8f8947f] ">
-      <Header />
+      <STEM />
       <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide -pt-10">
-        Welcome <span>to STEM</span>
+        Welcome {userData?.name || "User"}
       </h1>
-      <div className="flex justify-center mt-5 mb-20">
-        <img className="max-w-s h-auto w-1/3  " src={StemClubLogo} />
+      <div className="">
+        <StemCarousel />
       </div>
       <StemClubComponent />
     </div>

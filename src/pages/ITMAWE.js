@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../index";
+import IITMAWE from "../clubHEADERS/IITMAWE";
+
+import ItmaweCarousel from "../component/ItmaweCarousel";
+import ITMAWEclubComponent from "../component/ITMAWEclubComponent";
 
 const ITMAWE = () => {
+  const { userData } = useContext(AuthContext);
+
   return (
-    <div className="bg-[#f7f7f7f0] ">
-      <Header />
-      <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#3a7db8] text-center tracking-wide -pt-10">
-        Welcome <span>to ABM</span>
+    <div className="">
+      <IITMAWE />
+      <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+        Welcome {userData?.name || "User"}
       </h1>
-      <div className="flex justify-center -mt-3 mb-10">
-        <img className="max-w-full h-auto  " src={AbmClubLogo} />
+      <div className="">
+        <ItmaweCarousel />
       </div>
-      <ABMclubComponent />
+      <ITMAWEclubComponent />
     </div>
   );
 };

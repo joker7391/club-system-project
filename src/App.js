@@ -9,6 +9,10 @@ import Stem from "./pages/Stem";
 import YrcClub from "./pages/YrcClub";
 import ARTES from "./pages/ARTES";
 import ABM from "./pages/ABM";
+import ITMAWE from "./pages/ITMAWE";
+import COOKS from "./pages/COOKS";
+import TOUSLE from "./pages/TOUSLE";
+import DMA from "./pages/DMA";
 import ForbiddenPage from "./pages/ForbiddenPage";
 import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -87,6 +91,38 @@ function App() {
             element={
               <ProtectedRoute>
                 <ABM />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/itmawe"
+            element={
+              <ProtectedRoute>
+                <ITMAWE />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cooks"
+            element={
+              <ProtectedRoute>
+                <COOKS />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/tousle"
+            element={
+              <ProtectedRoute>
+                <TOUSLE />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dma"
+            element={
+              <ProtectedRoute>
+                <DMA />
               </ProtectedRoute>
             }
           />

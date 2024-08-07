@@ -36,7 +36,7 @@ const AdminLogin = () => {
 
   return (
     <div
-      className="bg-cover bg-blue-800 lg:bg-contain bg-no-repeat bg-center relative flex items-center justify-center h-screen"
+      className="bg-cover bg-blue-500 lg:bg-contain bg-no-repeat bg-center relative flex items-center justify-center h-screen"
       style={{
         backgroundImage:
           "url('https://www.sti.edu/images/2022/2022-banner-shs-model2.png')",

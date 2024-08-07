@@ -21,7 +21,7 @@ const Admin = () => {
 
   return (
     <div className="flex flex-col">
-      <nav className="bg-yellow-600 p-4 flex justify-between items-center">
+      <nav className="bg-blue-700 p-4 flex justify-between items-center">
         <h1 className="text-white text-2xl font-bold">Event </h1>
         <button
           onClick={handleLogout}

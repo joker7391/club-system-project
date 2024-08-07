@@ -14,6 +14,7 @@ import img13 from "../assets/image13.jpg";
 import img14 from "../assets/image14.jpg";
 import img15 from "../assets/image15.jpg";
 import img16 from "../assets/image16.jpg";
+import DMAclub from "../assets/DMAclub.png";
 
 export const clubData = [
   {
@@ -51,6 +52,10 @@ export const clubData = [
   {
     id: img16,
     club: "TOUSLE",
+  },
+  {
+    id: DMAclub,
+    club: "DMA",
   },
 ];
 

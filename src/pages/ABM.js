@@ -1,18 +1,21 @@
-import React from "react";
-import Header from "../component/Header";
+import React, { useContext } from "react";
+import { AuthContext } from "../index";
+import AABM from "../clubHEADERS/AABM";
 
-import AbmClubLogo from "../assets/image6.jpg";
+import AbmCarousel from "../component/AbmCarousel";
 import ABMclubComponent from "../component/ABMclubComponent";
 
 const ABM = () => {
+  const { userData } = useContext(AuthContext);
+
   return (
-    <div className="bg-[#f7f7f7f0] ">
-      <Header />
-      <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#3a7db8] text-center tracking-wide -pt-10">
-        Welcome <span>to ABM</span>
+    <div className="">
+      <AABM />
+      <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+        Welcome {userData?.name || "User"}
       </h1>
-      <div className="flex justify-center -mt-3 mb-10">
-        <img className="max-w-full h-auto  " src={AbmClubLogo} />
+      <div className="">
+        <AbmCarousel />
       </div>
       <ABMclubComponent />
     </div>

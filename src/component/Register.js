@@ -49,7 +49,7 @@ const Register = () => {
 
   return (
     <div
-      className="bg-cover bg-yellow-600 lg:bg-contain bg-no-repeat bg-center flex items-center justify-center h-screen"
+      className="bg-cover bg-blue-500 lg:bg-contain bg-no-repeat bg-center flex items-center justify-center h-screen"
       style={{
         backgroundImage:
           "url('https://www.sti.edu/images/2022/2022-banner-shs-model2.png')",

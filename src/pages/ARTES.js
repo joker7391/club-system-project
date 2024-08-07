@@ -1,15 +1,21 @@
-import React from "react";
-import Header from "../component/Header";
+import React, { useContext } from "react";
+import { AuthContext } from "../index";
+import AARTES from "../clubHEADERS/AARTES";
+
+import ArtesCarousel from "../component/ArtesCarousel";
 import ARTESclubComponent from "../component/ARTESclubComponent";
 
 const ARTES = () => {
+  const { userData } = useContext(AuthContext);
+
   return (
     <div className="">
-      <Header />
-      <div className="bg-center h-screen bg-no-repeat bg-[#e68b8bda] w-full lg:w-auto">
-        <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#f8f8f8] text-center tracking-wide">
-          Welcome <span>to ARTES</span>
-        </h1>
+      <AARTES />
+      <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+        Welcome {userData?.name || "User"}
+      </h1>
+      <div className="">
+        <ArtesCarousel />
       </div>
       <ARTESclubComponent />
     </div>

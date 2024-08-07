@@ -1,65 +1,62 @@
-import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React, { useState } from "react";
+import SwipeableViews from "react-swipeable-views";
+import { autoPlay } from "react-swipeable-views-utils";
+import ssa1 from "../assets/ssa1.jpg";
+import ssa2 from "../assets/ssa2.jpg";
+import ssa3 from "../assets/ssa3.jpg";
+import ssa4 from "../assets/ssa4.jpg";
 
-import img8 from "../assets/image8.jpg";
-import img9 from "../assets/image9.jpg";
-import img10 from "../assets/image10.jpg";
-import img11 from "../assets/image11.jpg";
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+const images = [
+  {
+    label: "ssa1",
+    imgPath: ssa1,
+  },
+  {
+    label: "ssa2",
+    imgPath: ssa2,
+  },
+  {
+    label: "ssa3",
+    imgPath: ssa3,
+  },
+  {
+    label: "ssa4",
+    imgPath: ssa4,
+  },
+];
 
 const SsaCarousel = () => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
-    <div className="min-h-screen bg-[#1c1c1cda] p-4">
-      <div className="h-[40em]  w-full flex justify-center items-center">
-        <Carousel
-          autoPlaySpeed={2000}
-          showDots={true}
-          infinite={true}
-          responsive={responsive}
-          autoPlay={true}
-          partialVisible={false}
+    <div className="relative mx-auto max-w-xl">
+      <div className="relative">
+        <AutoPlaySwipeableViews
+          index={activeStep}
+          onChangeIndex={setActiveStep}
+          enableMouseEvents
         >
-          <div>
-            <img src={img8} alt="" className=" w-72 h-64" />
-          </div>
-          <div>
-            <img src={img9} alt="" className=" w-72 h-64" />
-          </div>
-          <div>
-            <img src={img10} alt="" className=" w-72 h-64" />
-          </div>
-          <div>
-            <img src={img11} alt="" className=" w-72 h-64" />
-          </div>
-          <div>
-            <img src={img11} alt="" className=" w-72 h-64" />
-          </div>
-          <div>
-            <img src={img11} alt="" className=" w-72 h-64" />
-          </div>
-          <div>
-            <img src={img11} alt="" className=" w-72 h-64" />
-          </div>
-        </Carousel>
+          {images.map((step, index) => (
+            <div key={step.label}>
+              {Math.abs(activeStep - index) <= 2 && (
+                <img
+                  src={step.imgPath}
+                  alt={step.label}
+                  className={`object-cover w-50 h-15 transition-opacity duration-500 ${
+                    activeStep === index ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              )}
+            </div>
+          ))}
+        </AutoPlaySwipeableViews>
+      </div>
+      <div className="flex justify-center mt-4 space-x-2">
+        {images.map((_, index) => (
+          <span key={index} onClick={() => setActiveStep(index)} />
+        ))}
       </div>
     </div>
   );

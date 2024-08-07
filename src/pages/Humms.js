@@ -1,18 +1,24 @@
-import React from "react";
-import Header from "../component/Header";
+import React, { useContext } from "react";
+import { AuthContext } from "../index";
+import HUMMS from "../clubHEADERS/HUMMS";
 
 import HummsClubLogo from "../assets/HummsClub.png";
+import HummsCarousel from "../component/HummsCarousel";
 import HummsClubComponent from "../component/HummsClubComponent";
 
 const Humms = () => {
+  const { userData } = useContext(AuthContext);
+
   return (
-    <div className="bg-[#f7f7f7f0] ">
-      <Header />
-      <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#c33838] text-center tracking-wide -pt-10">
-        Welcome <span>to HUMMS</span>
-      </h1>
-      <div className="flex justify-center -mt-1 mb-10">
-        <img className="max-w-full h-auto  " src={HummsClubLogo} />
+    <div className="">
+      <HUMMS />
+      <div>
+        <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+          Welcome {userData?.name || "User"}
+        </h1>
+        <div className="">
+          <HummsCarousel />
+        </div>
       </div>
       <HummsClubComponent />
     </div>
