@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import classNames from "classnames";
 
 import yrc1 from "../assets/yrc1.jpg";
 import yrc2 from "../assets/yrc2.jpg";
 import yrc3 from "../assets/yrc3.png";
 import yrc4 from "../assets/yrc4.png";
-
-const containerClasses = "relative mx-auto max-w-xl";
-const imageContainerClasses = "relative";
-const imageClasses = "object-cover w-50 h-full";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -37,8 +32,8 @@ const YrcCarousel = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <div className={containerClasses}>
-      <div className={imageContainerClasses}>
+    <div className="relative mx-auto max-w-xl">
+      <div className="relative">
         <AutoPlaySwipeableViews
           index={activeStep}
           onChangeIndex={setActiveStep}
@@ -50,10 +45,9 @@ const YrcCarousel = () => {
                 <img
                   src={step.imgPath}
                   alt={step.label}
-                  className={classNames(imageClasses, {
-                    "opacity-100": activeStep === index,
-                    "opacity-0": activeStep !== index,
-                  })}
+                  className={`object-cover w-50 h-15 transition-opacity duration-500 ${
+                    activeStep === index ? "opacity-100" : "opacity-0"
+                  }`}
                 />
               )}
             </div>
