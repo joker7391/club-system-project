@@ -18,16 +18,16 @@ import ITMAWEjoinedContent from "../CLUBjoinedContent/ITMAWEjoinedContent";
 import COOKSjoinedContent from "../CLUBjoinedContent/COOKSjoinedContent";
 import TOUSLEjoinedContent from "../CLUBjoinedContent/TOUSLEjoinedContent";
 import DMAjoinedContent from "../CLUBjoinedContent/DMAjoinedContent";
-import SSACarousel from "../component/SsaCarousel";
-import HUMMSCarousel from "../component/HummsCarousel";
-import STEMCarousel from "../component/StemCarousel";
-import YRCCarousel from "../component/YrcCarousel";
-import ARTESCarousel from "../component/ArtesCarousel";
-import ABMCarousel from "../component/AbmCarousel";
-import ITMAWECarousel from "../component/ItmaweCarousel";
-import COOKSCarousel from "../component/CooksCarousel";
-import TOUSLECarousel from "../component/TousleCarousel";
-import DMACarousel from "../component/DmaCarousel";
+import SSACarousel from "./SsaCarousel";
+import HUMMSCarousel from "./HummsCarousel";
+import STEMCarousel from "./StemCarousel";
+import YRCCarousel from "./YrcCarousel";
+import ARTESCarousel from "./ArtesCarousel";
+import ABMCarousel from "./AbmCarousel";
+import ITMAWECarousel from "./ItmaweCarousel";
+import COOKSCarousel from "./CooksCarousel";
+import TOUSLECarousel from "./TousleCarousel";
+import DMACarousel from "./DmaCarousel";
 
 const ClubPicker = () => {
   const navigate = useNavigate();

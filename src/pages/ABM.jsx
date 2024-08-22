@@ -1,25 +1,22 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../index";
-import COOOKS from "../clubHEADERS/COOOKS";
+import AABM from "../clubHEADERS/AABM";
 
-import CooksCarousel from "../component/CooksCarousel";
-import COOKSclubComponent from "../component/COOKSclubComponent";
+import ABMclubComponent from "../component/ABMclubComponent";
 
-const COOKS = () => {
+const ABM = () => {
   const { userData } = useContext(AuthContext);
 
   return (
     <div className="">
-      <COOOKS />
+      <AABM />
       <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
         Welcome {userData?.name || "User"}
       </h1>
-      <div className="">
-        <CooksCarousel />
-      </div>
-      <COOKSclubComponent />
+
+      <ABMclubComponent />
     </div>
   );
 };
 
-export default COOKS;
+export default ABM;
