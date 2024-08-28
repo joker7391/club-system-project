@@ -1,25 +1,22 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../index";
-import COOOKS from "../clubHEADERS/COOOKS";
+import IITMAWE from "../clubHEADERS/IITMAWE";
 
-import CooksCarousel from "../component/CooksCarousel";
-import COOKSclubComponent from "../component/COOKSclubComponent";
+import ITMAWEclubComponent from "../component/ITMAWEclubComponent";
 
-const COOKS = () => {
+const ITMAWE = () => {
   const { userData } = useContext(AuthContext);
 
   return (
     <div className="">
-      <COOOKS />
+      <IITMAWE />
       <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
         Welcome {userData?.name || "User"}
       </h1>
-      <div className="">
-        <CooksCarousel />
-      </div>
-      <COOKSclubComponent />
+
+      <ITMAWEclubComponent />
     </div>
   );
 };
 
-export default COOKS;
+export default ITMAWE;

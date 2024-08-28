@@ -1,25 +1,25 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../index";
-import TOUSLEE from "../clubHEADERS/TOUSLEE";
+import SSA from "../clubHEADERS/SSA";
+import SsaCarousel from "../component/SsaCarousel";
 
-import TousleCarousel from "../component/TousleCarousel";
-import TOUSLEclubComponent from "../component/TOUSLEclubComponent";
+import SsaClubComponent from "../component/SsaClubComponent";
 
-const TOUSLE = () => {
+const SSAClub = () => {
   const { userData } = useContext(AuthContext);
 
   return (
     <div className="">
-      <TOUSLEE />
+      <SSA />
       <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
         Welcome {userData?.name || "User"}
       </h1>
-      <div className="">
-        <TousleCarousel />
+      <div>
+        <SsaCarousel />
       </div>
-      <TOUSLEclubComponent />
+      <SsaClubComponent />
     </div>
   );
 };
 
-export default TOUSLE;
+export default SSAClub;
