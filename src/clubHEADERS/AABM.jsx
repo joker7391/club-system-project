@@ -23,7 +23,7 @@ const AABM = () => {
         <img className="w-[4em] h-[4em] rounded-md" src={ABMlogo} alt="logo" />
       </div>
       <div className="flex gap-4 items-center text-[#fff]">
-        <h4 className="text-[20px] font-semibold py-1 text-[#fff]">
+        <h4 className="text-[20px] font-extrabold py-1 text-[#fff]">
           {userData?.name || "User"}
         </h4>
         <button className="text-[40px]">
