@@ -48,7 +48,7 @@ export const clubData = [
   },
   {
     id: img16,
-    club: "SESLE",
+    club: "TOUSLE",
   },
   {
     id: DMAclub,

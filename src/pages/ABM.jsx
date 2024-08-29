@@ -14,7 +14,7 @@ const ABM = () => {
       <h1 className="font-serif text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
         Welcome {userData?.name || "User"}
       </h1>
-      <div className="mb-6">
+      <div className="mb-8 mt-2">
         <AbmCarousel />
       </div>
       <ABMclubComponent />

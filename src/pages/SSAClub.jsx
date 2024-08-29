@@ -11,10 +11,10 @@ const SSAClub = () => {
   return (
     <div className="">
       <SSA />
-      <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
         Welcome {userData?.name || "User"}
       </h1>
-      <div>
+      <div className="mb-10 mt-2">
         <SsaCarousel />
       </div>
       <SsaClubComponent />

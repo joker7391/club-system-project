@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../index";
 import HUMMS from "../clubHEADERS/HUMMS";
-
-import HummsClubLogo from "../assets/HummsClub.png";
-
+import HummsCarousel from "../component/HummsCarousel";
 import HummsClubComponent from "../component/HummsClubComponent";
 
 const Humms = () => {
@@ -12,10 +10,11 @@ const Humms = () => {
   return (
     <div className="">
       <HUMMS />
-      <div>
-        <h1 className="font-extrabold text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
-          Welcome {userData?.name || "User"}
-        </h1>
+      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+        Welcome {userData?.name || "User"}
+      </h1>
+      <div className="mb-8 mt-2">
+        <HummsCarousel />
       </div>
       <HummsClubComponent />
     </div>
