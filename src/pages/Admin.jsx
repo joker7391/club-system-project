@@ -1,37 +1,28 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase.config";
-import { signOut } from "firebase/auth";
-import Club from "../component/Club";
-import { clubs } from "../assets/data"; // Importing the clubs array
-import TodoList from "../component/TodoList";
+import AdminNav from "../component/AdminNav";
+import Sidebar from "../component/Sidebar";
+import AddEventForm from "../component/AddEventForm";
 
 const Admin = () => {
-  const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState(clubs[0].id);
-
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      navigate("/AdminLogin");
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
-  };
+  const clubs = [
+    { id: 1, name: 'Football Club' },
+    { id: 2, name: 'Chess Club' },
+    { id: 3, name: 'Art Club' },
+  ];
 
   return (
-    <div className="flex flex-col">
-      <nav className="bg-blue-700 p-4 flex justify-between items-center">
-        <h1 className="text-white text-2xl font-bold">Event </h1>
-        <button
-          onClick={handleLogout}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Logout
-        </button>
-      </nav>
-      <div className="min-h-screen flex items-center justify-center bg-gray-500">
-        <TodoList />
+    <div className="flex h-screen">
+      {/* Sidebar on the left */}
+      <div className="w-1/4 bg-gray-800">
+      <AdminNav />
+        <Sidebar />
+       
+      </div>
+
+      {/* Main content on the right */}
+      <div className="flex-1 flex flex-col">
+      <AddEventForm clubs={clubs} />
+      
       </div>
     </div>
   );
