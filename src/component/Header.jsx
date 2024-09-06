@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Logout from "./Logout";
 import clubData from "../assets/clubLOGO.png";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [isOpen] = useState(false);
   const navigate = useNavigate();
   const handleHome = () => {
     navigate("/home");
