@@ -16,7 +16,7 @@ export default function Sidebar() {
           }`}>
           <HomeIcon className="w-6 h-6 mr-3" /> Dashboard
         </button>
-        <button
+        {/* <button
           onClick={() => setActive('users')}
           className={`flex items-center p-2 text-lg rounded-md transition-colors duration-200 ${
             active === 'users' ? 'bg-gray-700' : ''
@@ -29,7 +29,7 @@ export default function Sidebar() {
             active === 'settings' ? 'bg-gray-700' : ''
           }`}>
           <CogIcon className="w-6 h-6 mr-3" /> Settings
-        </button>
+        </button> */}
       </nav>
     </div>
   );
