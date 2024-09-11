@@ -124,7 +124,7 @@ const ClubPicker = () => {
 
   return (
     <div className="flex flex-col items-center gap-6 px-10 py-20 w-full">
-      <div className="w-full h-full">{renderClubCarousel()}</div>
+      <div className="mb-6 w-full h-full">{renderClubCarousel()}</div>
       {userClub ? (
         <div className="gap-6 w-full">
           <div className="w-full h-full bg-blue-700 rounded-md py-4 flex flex-col items-center gap-2">
