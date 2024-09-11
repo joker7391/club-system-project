@@ -18,7 +18,7 @@ const Admin = () => {
   ];
 
   return (
-    <div className="flex h-screen">
+    <div className="flex">
       {/* Sidebar on the left */}
       <div className="w-1/4 bg-gray-800">
         <AdminNav />
