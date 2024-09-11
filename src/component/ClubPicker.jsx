@@ -8,16 +8,16 @@ import { firestore } from "../firebase.config";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ClubJoined from "./ClubJoined";
-import SSAjoinedContent from "../CLUBjoinedContent/SSAjoinedContent";
-import HUMMSjoinedContent from "../CLUBjoinedContent/HUMMSjoinedContent";
-import STEMjoinedContent from "../CLUBjoinedContent/STEMjoinedContent";
-import YRCjoinedContent from "../CLUBjoinedContent/YRCjoinedContent";
-import ARTESjoinedContent from "../CLUBjoinedContent/ARTESjoinedContent";
-import ABMjoinedContent from "../CLUBjoinedContent/ABMjoinedContent";
-import ITMAWEjoinedContent from "../CLUBjoinedContent/ITMAWEjoinedContent";
-import COOKSjoinedContent from "../CLUBjoinedContent/COOKSjoinedContent";
-import TOUSLEjoinedContent from "../CLUBjoinedContent/TOUSLEjoinedContent";
-import DMAjoinedContent from "../CLUBjoinedContent/DMAjoinedContent";
+import ABMevents from "../CLUBjoinedContent/ABMevents";
+import ARTESevents from "../CLUBjoinedContent/ARTESevents";
+import COOKSevents from "../CLUBjoinedContent/COOKSevents";
+import DMAevents from "../CLUBjoinedContent/DMAevents";
+import HUMMSevents from "../CLUBjoinedContent/HUMMSevents";
+import ITMAWEevents from "../CLUBjoinedContent/ITMAWEevents";
+import YRCevents from "../CLUBjoinedContent/YRCevents";
+import SSAevents from "../CLUBjoinedContent/SSAevents";
+import STEMevents from "../CLUBjoinedContent/STEMevents";
+import TOUSLEevents from "../CLUBjoinedContent/TOUSLEevents";
 import SSACarousel from "../component/SsaCarousel";
 import HUMMSCarousel from "../component/HummsCarousel";
 import STEMCarousel from "../component/StemCarousel";
@@ -78,67 +78,24 @@ const ClubPicker = () => {
     }
   };
 
-  const eventsData = {
-    SSA: [
-      { id: 1, type: "BOSS !" },
-      { id: 2, type: "KUPAL KABA?" },
-    ],
-    HUMMS: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    STEM: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    YRC: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    ARTES: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    ABM: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    ITMAWE: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    COOKS: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    TOUSLE: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
-    DMA: [
-      { id: 1, type: "Event 1" },
-      { id: 2, type: "Event 2" },
-    ],
+  const clubComponent = {
+    ABM: <ABMevents />,
+    ARTES: <ARTESevents />,
+    COOKS: <COOKSevents />,
+    DMA: <DMAevents />,
+    HUMMS: <HUMMSevents />,
+    ITMAWE: <ITMAWEevents />,
+    SSA: <SSAevents />,
+    STEM: <STEMevents />,
+    TOUSLE: <TOUSLEevents />,
+    YRC: <YRCevents />,
   };
 
-  const clubContentMap = {
-    SSA: <SSAjoinedContent />,
-    HUMMS: <HUMMSjoinedContent />,
-    STEM: <STEMjoinedContent />,
-    YRC: <YRCjoinedContent />,
-    ARTES: <ARTESjoinedContent />,
-    ABM: <ABMjoinedContent />,
-    ITMAWE: <ITMAWEjoinedContent />,
-    COOKS: <COOKSjoinedContent />,
-    TOUSLE: <TOUSLEjoinedContent />,
-    DMA: <DMAjoinedContent />,
-  };
-
-  const renderClubContent = () => {
+  const renderClubComponent = () => {
     try {
-      return clubContentMap[userClub] || null;
+      return clubComponent[userClub] || null;
     } catch (error) {
-      console.error("Error rendering club content: ", error);
+      console.error("Error rendering club component: ", error);
       return null;
     }
   };
@@ -189,19 +146,9 @@ const ClubPicker = () => {
               >
                 Visit
               </motion.button>
-              <motion.button
-                whileTap={{ scale: 0.9 }}
-                onClick={handleUnjoin}
-                className="text-[#090612] text-[16px] font-bold bg-yellow-400 px-2 rounded-md"
-              >
-                Unjoin
-              </motion.button>
             </div>
           </div>
-          <div className="mt-6">
-            <ClubJoined clubName={userClub} events={eventsData[userClub]} />
-          </div>
-          <div className="mt-6 w-full h-full">{renderClubContent()}</div>
+          <div className="mt-6 w-full h-full">{renderClubComponent()}</div>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full">

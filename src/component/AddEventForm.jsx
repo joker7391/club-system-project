@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { firestore, storage } from '../firebase.config'; 
-import { collection, addDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import { useState } from "react";
+import { firestore, storage } from "../firebase.config";
+import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AddEventForm({ clubs }) {
   const [formData, setFormData] = useState({
-    eventName: '',
-    eventDate: '',
-    eventTime: '',
-    eventDescription: '',
-    club: '',
+    eventName: "",
+    eventDate: "",
+    eventTime: "",
+    eventDescription: "",
+    club: "",
     eventFlyer: null, // For file upload
   });
 
@@ -19,7 +19,7 @@ export default function AddEventForm({ clubs }) {
   const [uploading, setUploading] = useState(false);
 
   const handleChange = (e) => {
-    if (e.target.name === 'eventFlyer') {
+    if (e.target.name === "eventFlyer") {
       setFormData({
         ...formData,
         [e.target.name]: e.target.files[0], // Store the file
@@ -34,12 +34,12 @@ export default function AddEventForm({ clubs }) {
 
   const validateForm = () => {
     let formErrors = {};
-    if (!formData.eventName) formErrors.eventName = 'Event Name is required';
-    if (!formData.eventDate) formErrors.eventDate = 'Event Date is required';
-    if (!formData.eventTime) formErrors.eventTime = 'Event Time is required';
+    if (!formData.eventName) formErrors.eventName = "Event Name is required";
+    if (!formData.eventDate) formErrors.eventDate = "Event Date is required";
+    if (!formData.eventTime) formErrors.eventTime = "Event Time is required";
     if (!formData.eventDescription)
-      formErrors.eventDescription = 'Event Description is required';
-    if (!formData.club) formErrors.club = 'You must select a club';
+      formErrors.eventDescription = "Event Description is required";
+    if (!formData.club) formErrors.club = "You must select a club";
     return formErrors;
   };
 
@@ -59,7 +59,7 @@ export default function AddEventForm({ clubs }) {
         }
 
         // Save form data to Firestore
-        await addDoc(collection(firestore, 'events'), {
+        await addDoc(collection(firestore, "events"), {
           eventName: formData.eventName,
           eventDate: formData.eventDate,
           eventTime: formData.eventTime,
@@ -69,7 +69,7 @@ export default function AddEventForm({ clubs }) {
         });
 
         // Success notification
-        toast.success('Event successfully added!', {
+        toast.success("Event successfully added!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -80,18 +80,18 @@ export default function AddEventForm({ clubs }) {
         });
 
         setFormData({
-          eventName: '',
-          eventDate: '',
-          eventTime: '',
-          eventDescription: '',
-          club: '',
+          eventName: "",
+          eventDate: "",
+          eventTime: "",
+          eventDescription: "",
+          club: "",
           eventFlyer: null,
         });
         setErrors({});
       } catch (error) {
-        console.error('Error adding event:', error);
+        console.error("Error adding event:", error);
         // Error notification
-        toast.error('Failed to add the event. Please try again.', {
+        toast.error("Failed to add the event. Please try again.", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -109,12 +109,14 @@ export default function AddEventForm({ clubs }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-300">
-      <div className="max-w-md w-full p-6 bg-white shadow-md rounded-md">
+    <div className="min-h-screen flex items-center justify-center bg-slate-300 p-4">
+      <div className="max-w-md w-full p-6 bg-white shadow-md rounded-md my-8">
         <h2 className="text-2xl font-semibold mb-6">Add Event</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Event Name</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Event Name
+            </label>
             <input
               type="text"
               name="eventName"
@@ -128,7 +130,9 @@ export default function AddEventForm({ clubs }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Event Date</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Event Date
+            </label>
             <input
               type="date"
               name="eventDate"
@@ -142,7 +146,9 @@ export default function AddEventForm({ clubs }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Event Time</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Event Time
+            </label>
             <input
               type="time"
               name="eventTime"
@@ -156,7 +162,9 @@ export default function AddEventForm({ clubs }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Description</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Description
+            </label>
             <textarea
               name="eventDescription"
               value={formData.eventDescription}
@@ -170,7 +178,9 @@ export default function AddEventForm({ clubs }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Select Club</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Select Club
+            </label>
             <select
               name="club"
               value={formData.club}
@@ -184,11 +194,15 @@ export default function AddEventForm({ clubs }) {
                 </option>
               ))}
             </select>
-            {errors.club && <p className="text-red-500 text-sm">{errors.club}</p>}
+            {errors.club && (
+              <p className="text-red-500 text-sm">{errors.club}</p>
+            )}
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Event Flyer (optional)</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Event Flyer (optional)
+            </label>
             <input
               type="file"
               name="eventFlyer"
@@ -196,7 +210,9 @@ export default function AddEventForm({ clubs }) {
               className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             />
             {formData.eventFlyer && (
-              <p className="text-sm text-green-500">File selected: {formData.eventFlyer.name}</p>
+              <p className="text-sm text-green-500">
+                File selected: {formData.eventFlyer.name}
+              </p>
             )}
           </div>
 
@@ -205,7 +221,7 @@ export default function AddEventForm({ clubs }) {
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
             disabled={uploading}
           >
-            {uploading ? 'Uploading...' : 'Add Event'}
+            {uploading ? "Uploading..." : "Add Event"}
           </button>
         </form>
       </div>
