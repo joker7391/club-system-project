@@ -8,9 +8,9 @@ const Stem = () => {
   const { userData } = useContext(AuthContext);
 
   return (
-    <div className="bg-[#a8f8947f] ">
+    <div className="bg-[#93fa797f] ">
       <STEM />
-      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide -pt-10">
+      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#0000cd] text-center tracking-wide -pt-10">
         Welcome {userData?.name || "User"}
       </h1>
       <div className="mb-10 mt-2">

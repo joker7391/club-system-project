@@ -146,12 +146,19 @@ const ClubPicker = () => {
               >
                 Visit
               </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleUnjoin(userClub)}
+                className="text-[#090612] text-[18px] font-bold bg-yellow-400 px-3 rounded-md"
+              >
+                Unjoin
+              </motion.button>
             </div>
           </div>
           <div className="mt-6 w-full h-full">{renderClubComponent()}</div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full -mt-12">
           {clubData.map((club, index) => (
             <div
               key={index}
