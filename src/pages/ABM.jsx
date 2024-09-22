@@ -9,7 +9,7 @@ const ABM = () => {
   const { userData } = useContext(AuthContext);
 
   return (
-    <div className="">
+    <div className="bg-[#74bdf881]">
       <AABM />
       <h1 className="font-serif text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
         Welcome {userData?.name || "User"}

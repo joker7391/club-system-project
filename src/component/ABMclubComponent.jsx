@@ -1,80 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { firestore } from "../firebase.config";
-import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ABMclubComponent = () => {
-  const [clubEvents, setClubEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchABMClubEvents = async () => {
-      setLoading(true);
-      try {
-        const eventsCollection = collection(firestore, "events");
-        const abmClubQuery = query(eventsCollection, where("club", "==", "1"));
-        const eventsSnapshot = await getDocs(abmClubQuery);
-
-        const eventsList = eventsSnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-
-        setClubEvents(eventsList);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching ABM Club events:", error);
-        setLoading(false);
-      }
-    };
-
-    fetchABMClubEvents();
-  }, []);
-
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center w-full">
-      <header className="w-full bg-blue-600 py-10 text-white text-center">
-        <h1 className="text-4xl font-bold">ABM Club Events</h1>
-        <p className="mt-4 text-lg w-4/5 mx-auto lg:w-1/2">
-          The ABM Club engages in various business and management-related activities.
-          Enhance your leadership, problem-solving, and communication skills through
-          real-world projects and exciting events.
-        </p>
-      </header>
-
-      <div className="container mx-auto py-12 px-4 lg:px-0">
-        {loading ? (
-          <p className="text-center text-lg text-gray-500">Loading events...</p>
-        ) : clubEvents.length === 0 ? (
-          <p className="text-center text-lg text-gray-500">No events available for ABM Club.</p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {clubEvents.map((event) => (
-              <div
-                key={event.id}
-                className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
-              >
-                {event.eventImage && (
-                  <img
-                    src={event.eventImage}
-                    alt={event.eventName}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                  />
-                )}
-
-                <h3 className="text-2xl font-semibold text-blue-600">{event.eventName}</h3>
-
-                <p className="text-gray-600 mt-2">
-                  <span className="font-bold">Date:</span> {event.eventDate}
-                </p>
-                <p className="text-gray-600">
-                  <span className="font-bold">Time:</span> {event.eventTime}
-                </p>
-
-                <p className="text-gray-600 mt-4">{event.eventDescription}</p>
-              </div>
-            ))}
-          </div>
-        )}
+    <div className="min-h-[100vh] bg-gradient-to-l from-[#4169E1] to-[#f4d214c8] flex justify-center items-center w-full lg:w-auto">
+      <div className="py-20 flex flex-col items-center gap-10">
+        <h1 className="text-[#f0f8ff] font-serif text-md lg:text-3xl text-center w-auto lg:w-[30em]">
+          The ABM Club engages in various business and management-related
+          activities. Enhance your leadership, problem-solving, and
+          communication skills through real-world projects and exciting events.
+        </h1>
       </div>
     </div>
   );

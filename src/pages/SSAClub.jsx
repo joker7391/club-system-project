@@ -9,9 +9,9 @@ const SSAClub = () => {
   const { userData } = useContext(AuthContext);
 
   return (
-    <div className="">
+    <div className="bg-gray-900">
       <SSA />
-      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#fbff00dd] text-center tracking-wide">
         Welcome {userData?.name || "User"}
       </h1>
       <div className="mb-10 mt-2">

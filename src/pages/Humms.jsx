@@ -8,9 +8,9 @@ const Humms = () => {
   const { userData } = useContext(AuthContext);
 
   return (
-    <div className="">
+    <div className="bg-[#ffdab9]">
       <HUMMS />
-      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#000000] text-center tracking-wide">
+      <h1 className="font-serif text-[20px] lg:text-[60px] text-[#cd5c5c] text-center tracking-wide">
         Welcome {userData?.name || "User"}
       </h1>
       <div className="mb-8 mt-2">
