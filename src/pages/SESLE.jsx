@@ -4,7 +4,7 @@ import TOUSLEE from "../clubHEADERS/TOUSLEE";
 import TousleCarousel from "../component/TousleCarousel";
 import TOUSLEclubComponent from "../component/TOUSLEclubComponent";
 
-const TOUSLE = () => {
+const SESLE = () => {
   const { userData } = useContext(AuthContext);
 
   return (
@@ -21,4 +21,4 @@ const TOUSLE = () => {
   );
 };
 
-export default TOUSLE;
+export default SESLE;

@@ -11,7 +11,7 @@ import ARTES from "./pages/ARTES";
 import ABM from "./pages/ABM";
 import ITMAWE from "./pages/ITMAWE";
 import COOKS from "./pages/COOKS";
-import TOUSLE from "./pages/TOUSLE";
+import SESLE from "./pages/SESLE";
 import DMA from "./pages/DMA";
 import ForbiddenPage from "./pages/ForbiddenPage";
 import ProtectedRoute from "./ProtectedRoute";
@@ -111,10 +111,10 @@ function App() {
             }
           />
           <Route
-            path="/tousle"
+            path="/sesle"
             element={
               <ProtectedRoute>
-                <TOUSLE />
+                <SESLE />
               </ProtectedRoute>
             }
           />
