@@ -12,7 +12,7 @@ export default function AddEventForm({ clubs }) {
     eventTime: "",
     eventDescription: "",
     club: "",
-    eventFlyer: null, // For file upload
+    eventFlyer: null, // for payle uplawdes
   });
 
   const [errors, setErrors] = useState({});
@@ -22,7 +22,7 @@ export default function AddEventForm({ clubs }) {
     if (e.target.name === "eventFlyer") {
       setFormData({
         ...formData,
-        [e.target.name]: e.target.files[0], // Store the file
+        [e.target.name]: e.target.files[0], // Story da payle
       });
     } else {
       setFormData({
@@ -51,24 +51,23 @@ export default function AddEventForm({ clubs }) {
       try {
         let flyerURL = null;
 
-        // If a file is uploaded, upload to Firebase Storage
+        // pag nag uplawdes mapunta sya firebase
         if (formData.eventFlyer) {
           const storageRef = ref(storage, `flyers/${formData.eventFlyer.name}`);
           const snapshot = await uploadBytes(storageRef, formData.eventFlyer);
           flyerURL = await getDownloadURL(snapshot.ref);
         }
 
-        // Save form data to Firestore
+        // sa firestore nag saber form data
         await addDoc(collection(firestore, "events"), {
           eventName: formData.eventName,
           eventDate: formData.eventDate,
           eventTime: formData.eventTime,
           eventDescription: formData.eventDescription,
           club: formData.club,
-          flyerURL, // Save flyer URL or null if no file
+          flyerURL,
         });
 
-        // Success notification
         toast.success("Event successfully added!", {
           position: "top-right",
           autoClose: 5000,
@@ -90,7 +89,7 @@ export default function AddEventForm({ clubs }) {
         setErrors({});
       } catch (error) {
         console.error("Error adding event:", error);
-        // Error notification
+
         toast.error("Failed to add the event. Please try again.", {
           position: "top-right",
           autoClose: 5000,

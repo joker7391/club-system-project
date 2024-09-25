@@ -7,7 +7,7 @@ import { clubData } from "../assets/data";
 import { firestore } from "../firebase.config";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ClubJoined from "./ClubJoined";
+
 import ABMevents from "../CLUBjoinedContent/ABMevents";
 import ARTESevents from "../CLUBjoinedContent/ARTESevents";
 import COOKSevents from "../CLUBjoinedContent/COOKSevents";
@@ -58,23 +58,6 @@ const ClubPicker = () => {
     } catch (error) {
       console.error("Error joining club: ", error);
       toast.error("Failed to join the club. Please try again.");
-    }
-  };
-
-  const handleUnjoin = async () => {
-    if (!currentUser) {
-      toast.error("You need to be logged in to unjoin a club.");
-      return;
-    }
-
-    try {
-      const userDoc = doc(firestore, "users", currentUser.uid);
-      await setDoc(userDoc, { club: "" }, { merge: true });
-      setUserClub(null);
-      toast.success("You have successfully left the club.");
-    } catch (error) {
-      console.error("Error leaving club: ", error);
-      toast.error("Failed to leave the club. Please try again.");
     }
   };
 
@@ -145,13 +128,6 @@ const ClubPicker = () => {
                 className="text-[#090612] text-[18px] font-bold bg-yellow-400 px-3 rounded-md"
               >
                 Visit
-              </motion.button>
-              <motion.button
-                whileTap={{ scale: 0.9 }}
-                onClick={() => handleUnjoin(userClub)}
-                className="text-[#090612] text-[18px] font-bold bg-yellow-400 px-3 rounded-md"
-              >
-                Unjoin
               </motion.button>
             </div>
           </div>

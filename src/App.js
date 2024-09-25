@@ -13,7 +13,7 @@ import ITMAWE from "./pages/ITMAWE";
 import COOKS from "./pages/COOKS";
 import SESLE from "./pages/SESLE";
 import DMA from "./pages/DMA";
-import ForbiddenPage from "./pages/ForbiddenPage";
+
 import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./AuthContext";
@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/forbidden" element={<ForbiddenPage />} />
+
           <Route path="/adminLogin" element={<AdminLogin />} />
           <Route
             path="/home"
