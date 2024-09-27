@@ -61,7 +61,7 @@ const ClubPicker = () => {
     }
   };
 
-  const clubComponent = {
+  const clubEvent = {
     ABM: <ABMevents />,
     ARTES: <ARTESevents />,
     COOKS: <COOKSevents />,
@@ -74,11 +74,11 @@ const ClubPicker = () => {
     YRC: <YRCevents />,
   };
 
-  const renderClubComponent = () => {
+  const renderClubEvent = () => {
     try {
-      return clubComponent[userClub] || null;
+      return clubEvent[userClub] || null;
     } catch (error) {
-      console.error("Error rendering club component: ", error);
+      console.error("Error rendering club event: ", error);
       return null;
     }
   };
@@ -131,7 +131,7 @@ const ClubPicker = () => {
               </motion.button>
             </div>
           </div>
-          <div className="mt-6 w-full h-full">{renderClubComponent()}</div>
+          <div className="mt-6 w-full h-full">{renderClubEvent()}</div>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full -mt-12">
