@@ -16,7 +16,7 @@ const Header = () => {
           onClick={handleHome}
           className="font-extrabold text-[30px] text-[#fff] cursor-pointer"
         >
-          STI CLUB
+          CLUB COLLECTIVE
         </h1>
         <img className="w-[4em] h-[4em] " src={clubData} alt="logo" />
       </div>

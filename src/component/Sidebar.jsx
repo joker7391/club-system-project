@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { HomeIcon } from "@heroicons/react/outline";
+import UserList from "../component/UserList";
+import { UserIcon } from "@heroicons/react/outline";
 
 export default function Sidebar() {
   const [active, setActive] = useState("dashboard");

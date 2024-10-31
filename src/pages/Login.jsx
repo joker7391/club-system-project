@@ -9,6 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,9 +20,9 @@ const Login = () => {
         email,
         password
       );
-      console.log("User Credential:", userCredential); // Added for debugging
+      console.log("User Credential:", userCredential); // Debugging
       const user = userCredential.user;
-      console.log("Authenticated User:", user); // Added for debugging
+      console.log("Authenticated User:", user); // Debugging
       navigate("/home");
     } catch (error) {
       setError(error.message);
@@ -32,6 +33,19 @@ const Login = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     navigate("/register");
+  };
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSelection = (selection) => {
+    if (selection === "User") {
+      navigate("/Login"); // Adjust to your user route
+    } else if (selection === "Admin") {
+      navigate("/adminLogin");
+    }
+    setIsOpen(false); // Close the dropdown after selection
   };
 
   return (
@@ -78,12 +92,30 @@ const Login = () => {
           </motion.button>
         </form>
       </div>
-      <button
-        onClick={() => navigate("/adminLogin")}
+      <motion.button
+        onClick={toggleDropdown}
+        whileTap={{ scale: 0.9 }}
         className="bg-blue-400 p-2 absolute top-5 right-5 rounded-md text-[#fff]"
       >
         Hello, STIER!
-      </button>
+      </motion.button>
+
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.2 }}
+          className="absolute top-16 right-5 bg-white border rounded-md shadow-lg"
+        >
+          <button
+            onClick={() => handleSelection("Admin")}
+            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+          >
+            Admin
+          </button>
+        </motion.div>
+      )}
     </div>
   );
 };
