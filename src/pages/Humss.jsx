@@ -4,7 +4,7 @@ import HUMMS from "../clubHEADERS/HUMMS";
 import HummsCarousel from "../component/HummsCarousel";
 import HummsClubComponent from "../component/HummsClubComponent";
 
-const Humms = () => {
+const Humss = () => {
   const { userData } = useContext(AuthContext);
 
   return (
@@ -21,4 +21,4 @@ const Humms = () => {
   );
 };
 
-export default Humms;
+export default Humss;

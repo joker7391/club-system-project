@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Register from "./component/Register";
 import Homepage from "./pages/Homepage";
 import SSAClub from "./pages/SSAClub";
-import Humms from "./pages/Humms";
+import Humss from "./pages/Humss";
 import Stem from "./pages/Stem";
 import YrcClub from "./pages/YrcClub";
 import ARTES from "./pages/ARTES";
@@ -55,10 +55,10 @@ function App() {
             }
           />
           <Route
-            path="/humms"
+            path="/humss"
             element={
               <ProtectedRoute>
-                <Humms />
+                <Humss />
               </ProtectedRoute>
             }
           />
