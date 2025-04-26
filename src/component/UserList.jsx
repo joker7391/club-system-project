@@ -24,6 +24,9 @@ const UserList = () => {
             <th className="py-2 px-4 border">Email</th>
             <th className="py-2 px-4 border">Contact</th>
             <th className="py-2 px-4 border">Club</th>
+            <th className="py-2 px-4 border">Booth</th>
+            <th className="py-2 px-4 border">Group</th>
+            <th className="py-2 px-4 border">Section</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +36,9 @@ const UserList = () => {
               <td className="py-2 px-4 border">{user.email}</td>
               <td className="py-2 px-4 border">{user.contact}</td>
               <td className="py-2 px-4 border">{user.club}</td>
+              <td className="py-2 px-4 border">{user.booth}</td>
+              <td className="py-2 px-4 border">{user.group}</td>
+              <td className="py-2 px-4 border">{user.section}</td>
             </tr>
           ))}
         </tbody>

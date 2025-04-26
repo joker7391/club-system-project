@@ -39,7 +39,7 @@ export default function AddEventForm({ clubs }) {
     if (!formData.eventTime) formErrors.eventTime = "Event Time is required";
     if (!formData.eventDescription)
       formErrors.eventDescription = "Event Description is required";
-    if (!formData.club) formErrors.club = "You must select a club";
+    
     return formErrors;
   };
 
