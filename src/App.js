@@ -13,6 +13,7 @@ import ITMAWE from "./pages/ITMAWE";
 import COOKS from "./pages/COOKS";
 import SESLE from "./pages/SESLE";
 import DMA from "./pages/DMA";
+import Expo from "./pages/Expo";
 
 import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -126,6 +127,16 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route
+            path="/expo"
+            element={
+              <ProtectedRoute>
+                <Expo />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
