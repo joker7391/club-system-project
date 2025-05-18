@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { AuthContext } from "../index";
 import { useNavigate } from "react-router-dom";
-import expologo from "../assets/expologo.png";
+import expologo from "../assets/expo.png";
 import { IoPersonCircleOutline } from "react-icons/io5";
 
 const EXPON = () => {
