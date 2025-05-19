@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import expo1 from "../assets/expo1.jpg";
-import expo2 from "../assets/expo2.jpg";
-import expo3 from "../assets/expo3.jpg";
-import expo4 from "../assets/expo4.jpg";
+import expo1 from "../assets/expoo1.jpg";
+import expo2 from "../assets/expoo2.jpg";
+import expo3 from "../assets/expoo3.jpg";
+import expo4 from "../assets/expoo4.jpg";
+import expo5 from "../assets/expoo5.jpg";
+import expo6 from "../assets/expoo6.jpg";
 
 const ExpoCarousel = () => {
-  const images = [expo1, expo2, expo3, expo4];
+  const images = [expo1, expo2, expo3, expo4, expo5, expo6];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -39,7 +41,7 @@ const ExpoCarousel = () => {
             key={index}
             src={image}
             alt={`Slide ${index + 1}`}
-            className="inline-block w-full h-full object-cover"
+            className="inline-block w-full h-100 object-cover"
           />
         ))}
       </div>
